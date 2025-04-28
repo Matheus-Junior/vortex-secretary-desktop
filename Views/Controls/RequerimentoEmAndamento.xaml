@@ -1,0 +1,123 @@
+﻿<UserControl x:Class="vortex_secretary_desktop.Views.Controls.RequerimentoEmAndamento"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:vortex_secretary_desktop"
+        mc:Ignorable="d"
+        d:DesignHeight="250"
+        d:DesignWidth="260">
+    <Button
+        Padding="0"
+        Command="{Binding ExpandCommand}"
+        Style="{StaticResource MaterialDesignFlatButton}"
+        Width="auto"
+        Height="auto"
+        Background="Transparent"
+        BorderThickness="0"
+        Foreground="White"
+        HorizontalAlignment="Right"
+        VerticalAlignment="Top">
+        
+        <!-- nota -->
+        <Border
+            Width="240"
+            Padding="5,5,5,15"
+            Margin="10"
+            Background="#951711"
+            CornerRadius="10"
+            BorderThickness="0.5"
+            BorderBrush="White">
+
+            <Grid 
+                Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition 
+                        Height="auto"/>
+                    <RowDefinition 
+                        Height="auto"/>
+                    <RowDefinition 
+                        Height="auto"/>
+                    <RowDefinition 
+                        Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <Border
+                    Grid.Row="0"
+                    Background="White"
+                    BorderThickness="0"
+                    BorderBrush="Black"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    CornerRadius="7">
+                    <TextBlock 
+                        Text="ERRADO!"
+                        FontSize="13"
+                        Foreground="Black"
+                        Margin="9,3,9,3"/>
+                </Border>
+
+                <TextBlock 
+                    Grid.Row="1"
+                    Text="Requerimento"
+                    FontWeight="Bold"
+                    FontSize="20"
+                    TextWrapping="Wrap"
+                    HorizontalAlignment="Center"
+                    Margin="0,10,0,20"/>
+
+                <TextBlock
+                    Grid.Row="2"
+                    Text="Tipo"
+                    FontWeight="Medium"
+                    FontSize="14"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,20"
+                    TextWrapping="Wrap"/>
+                
+                <Grid
+                    Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="*"/>
+                        <ColumnDefinition
+                            Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Border
+                        Grid.Column="0"
+                        Background="#992e2c"
+                        BorderThickness="0"
+                        BorderBrush="Black"
+                        VerticalAlignment="Center"
+                        Margin="10,0,10,0"
+                        CornerRadius="7">
+                        <TextBlock 
+                            Text="Status"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            TextAlignment="Center"
+                            Margin="9,3,9,3"/>
+                    </Border>
+                    <Button
+                        Grid.Column="1"
+                        Margin="10,0,10,0"
+                        VerticalAlignment="Bottom"
+                        Background="#992e2c"
+                        Padding="5"
+                        Height="50"
+                        FontWeight="Bold"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Foreground="White"
+                        materialDesign:ButtonAssist.CornerRadius="5">
+                        <TextBlock
+                            Text="Enviar Documento"
+                            TextWrapping="Wrap"
+                            TextAlignment="Center"/>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Border>
+    </Button>
+</UserControl>

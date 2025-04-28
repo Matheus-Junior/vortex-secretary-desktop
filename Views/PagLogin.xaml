@@ -1,0 +1,141 @@
+﻿<Window x:Class="vortex_secretary_desktop.Views.PagLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:vortex_secretary_desktop"
+        mc:Ignorable="d"
+        Style="{StaticResource MaterialDesignWindow}"
+        Title="Login"
+        Height="727"
+        Width="1060">
+    <Grid>
+        <Grid>
+            <Grid
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+                
+                <Border
+                    BorderThickness="1"
+                    Background="#951711"
+                    Height="320"
+                    Width="320"
+                    CornerRadius="10"
+                    Padding="20">
+                    
+                    <Grid
+                        Margin="15,0,15,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition
+                                Height="auto"/>
+                            <RowDefinition
+                                Height="*"/>
+                            <RowDefinition
+                                Height="auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Label
+                            Grid.Row="0"
+                            FontWeight="Bold"
+                            FontSize="18"
+                            HorizontalAlignment="Center"
+                            Foreground="White"
+                            Content="LOGIN SECRETARIA"/>
+                        
+                        <Grid
+                            Grid.Row="1"
+                            VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition
+                                    Height="auto"/>
+                                <RowDefinition
+                                    Height="auto"/>
+                                <RowDefinition
+                                    Height="auto"/>
+                                <RowDefinition
+                                    Height="auto"/>
+                                <RowDefinition
+                                    Height="auto"/>
+                            </Grid.RowDefinitions>
+                            
+                            <Label
+                                Grid.Row="0"
+                                FontWeight="Bold"
+                                FontSize="16"
+                                HorizontalAlignment="Left"
+                                Foreground="White"
+                                Content="Usuário"/>
+                            
+                            <Border
+                                Grid.Row="1"
+                                Background="White"
+                                Margin="0,0,0,10"
+                                CornerRadius="5">
+                                <TextBox
+                                    materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                    materialDesign:HintAssist.IsFloating="False"
+                                    Background="Transparent"
+                                    FontWeight="Bold"
+                                    IsEnabled="False"
+                                    Margin="5,0,5,0"
+                                    BorderThickness="0"
+                                    Text="admin"/>
+                            </Border>
+                            
+                            <Label
+                                Grid.Row="2"
+                                FontWeight="Bold"
+                                FontSize="16"
+                                HorizontalAlignment="Left"
+                                Foreground="White"
+                                Content="Senha"/>
+                            
+                            <Border
+                                Grid.Row="3"
+                                Background="White"
+                                Margin="0,0,0,15"
+                                CornerRadius="5">
+                                <TextBox
+                                    materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                    materialDesign:HintAssist.IsFloating="False"
+                                    Background="Transparent"
+                                    Margin="5,0,5,0"
+                                    BorderThickness="0"/>
+                            </Border>
+                            <TextBlock
+                                Grid.Row="4"
+                                FontSize="13"
+                                VerticalAlignment="Bottom"
+                                HorizontalAlignment="Right">
+                                <Hyperlink
+                                    Foreground="White"
+                                    FontSize="12"
+                                    Style="{StaticResource MaterialDesignOverlineHyperlink}"
+                                    FontWeight="Bold">
+                                    Esqueci minha senha
+                                </Hyperlink>
+                            </TextBlock>
+                        </Grid>
+                        
+                        <Button
+                            PreviewMouseLeftButtonDown="btnEntrar_Click"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom"
+                            Width="150"
+                            Background="#992e2c"
+                            FontWeight="Bold"
+                            Style="{StaticResource MaterialDesignFlatButton}"
+                            Foreground="White"
+                            materialDesign:ButtonAssist.CornerRadius="5"
+                            Grid.Row="6">
+                            ENTRAR
+                        </Button>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
