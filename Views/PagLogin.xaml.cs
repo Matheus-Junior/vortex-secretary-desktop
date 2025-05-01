@@ -24,7 +24,7 @@ public partial class PagLogin : Window
 
     public void btnEntrar_Click(object sender, MouseButtonEventArgs e)
     {
-        PagRequerimentos pagRequerimentos = new PagRequerimentos();
+        PagInicio pagRequerimentos = new PagInicio();
         pagRequerimentos.Show();
         this.Close();
     }

@@ -17,6 +17,7 @@ namespace vortex_secretary_desktop.Views;
 /// </summary>
 public partial class PagHistorico : Window
 {
+    private Template _historicoExtendido;
     public PagHistorico()
     {
         InitializeComponent();
@@ -25,28 +26,27 @@ public partial class PagHistorico : Window
         for (int i = 0; i < 10; i++)
         {
             var historico = new Historico();
-            historico.PreviewMouseLeftButtonDown += OpenNoteExtended;
+            historico.PreviewMouseLeftButtonDown += AbrirHistorico;
             duvidaWrapPanel.Children.Add(historico);
         }
     }
-    private void OpenNoteExtended(object sender, MouseButtonEventArgs e)
+    private void AbrirHistorico(object sender, MouseButtonEventArgs e)
     {
         
-            /*var requerimento*/
-            var duvidaExtendida = new Template();
-
-            duvidaExtendidaContainer.Content = duvidaExtendida;
-            duvidaExtendidaContainer.Visibility = Visibility.Visible;
+            var historicoExtendido = new Template();
+            historicoExtendidoContainer.Content = historicoExtendido;
+            historicoExtendidoContainer.Visibility = Visibility.Visible;
             mainGrid.Opacity = 0.3;
-            /*noteCard.Visibility = Visibility.Collapsed;*/
+            _historicoExtendido = historicoExtendido;
     }
-
+    
     private void AbrirRequerimentos(object sender, MouseButtonEventArgs e)
     {
-        PagRequerimentos pagRequerimentos = new PagRequerimentos();
-        pagRequerimentos.Show();
+        PagInicio pagInicio = new PagInicio();
+        pagInicio.Show();
         this.Close();
     }
+    
     private void AbrirDuvidas(object sender, MouseButtonEventArgs e)
     {
         PagDuvidas pagDuvidas = new PagDuvidas();
@@ -54,5 +54,50 @@ public partial class PagHistorico : Window
         this.Close();
     }
     
+    private void AbrirGerenciamento(object sender, MouseButtonEventArgs e)
+    {
+        PagGerenciamento pagGerenciamento = new PagGerenciamento();
+        pagGerenciamento.Show();
+        this.Close();
+    }
+    
+    private void FecharPrograma(object sender, MouseButtonEventArgs e)
+    {
+        this.Close();
+    }
+
+    private void ClicouJanela(object sender, MouseButtonEventArgs e)
+    {
+        var elementoClicado = e.OriginalSource as DependencyObject;
+        if (this._historicoExtendido != null && !ClicouDentro(historicoExtendidoContainer, elementoClicado))
+        {
+            try
+            {
+                historicoExtendidoContainer.Content = null;
+                historicoExtendidoContainer.Visibility = Visibility.Collapsed;
+                mainGrid.Opacity = 1;
+                this._historicoExtendido = null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao contrair requerimento: {ex.Message}", "Erro", 
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+    }
+    
+    private bool ClicouDentro(FrameworkElement container, DependencyObject clickedElement)
+    {
+        while (clickedElement != null)
+        {
+            if (clickedElement == container)
+            {
+                return true;
+            }
+            /* parte para o próximo elemento filho */
+            clickedElement = VisualTreeHelper.GetParent(clickedElement);
+        }
+        return false;
+    }
     
 }

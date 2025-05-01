@@ -23,7 +23,7 @@ public partial class Duvida : UserControl
 
     public void btnEntrar_Click(object sender, MouseButtonEventArgs e)
     {
-        PagRequerimentos home = new PagRequerimentos();
+        PagInicio home = new PagInicio();
         home.Show();
     }
 
